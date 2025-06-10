@@ -1,0 +1,25 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spam Detection Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>📊 Spam Detection Dashboard</h1>
+
+    <h2>1. Spam vs Ham Count</h2>
+    {{ count_chart | safe }}
+
+    <h2>2. Top 10 Words in Spam</h2>
+    {{ spam_chart | safe }}
+
+    <h2>3. Top 10 Words in Ham</h2>
+    {{ ham_chart | safe }}
+
+    <h2>4. Model Performance Comparison</h2>
+    {{ model_chart | safe }}
+
+</body>
+</html>

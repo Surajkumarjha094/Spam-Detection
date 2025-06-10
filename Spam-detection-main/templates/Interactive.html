@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Spam Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+    <h1>⚙️ Interactive Spam Detection Dashboard</h1>
+
+    <form method="POST" action="/interactive">
+        <label>Filter:
+            <select name="label_filter">
+                <option value="all" {{ 'selected' if selected_filter == 'all' else '' }}>All</option>
+                <option value="spam" {{ 'selected' if selected_filter == 'spam' else '' }}>Spam Only</option>
+                <option value="ham" {{ 'selected' if selected_filter == 'ham' else '' }}>Ham Only</option>
+            </select>
+        </label>
+
+        <label>Chart Type:
+            <select name="chart_type">
+                <option value="bar" {{ 'selected' if selected_chart == 'bar' else '' }}>Bar</option>
+                <option value="pie" {{ 'selected' if selected_chart == 'pie' else '' }}>Pie</option>
+            </select>
+        </label>
+
+        <button type="submit">Update Chart</button>
+    </form>
+
+    <div class="chart-box">
+        {{ chart | safe }}
+    </div>
+</body>
+</html>
